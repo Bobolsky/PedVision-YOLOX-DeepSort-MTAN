@@ -1,0 +1,30 @@
+DEEPSORT:
+  REID_CKPT: "deep_sort/deep_sort/deep/checkpoint/ckpt.t7"
+  # MAX_DIST: This parameter defines the maximum distance allowed between features to associate a detection with an existing track. 
+  # A lower value makes the association stricter, reducing the risk of identity switches but might increase track losses in overlaps. 
+  # Default: 0.2
+  MAX_DIST: 0.15
+  # MIN_CONFIDENCE: The minimum confidence threshold for detections to be considered. Increasing this value can reduce the number of
+  # false detections, but be careful not to miss legitimate detections.
+  # Default: 0.3
+  MIN_CONFIDENCE: 0.45
+  # NMS_MAX_OVERLAP: The maximum overlap allowed in Non-Maximum Suppression. Decreasing this value can help reduce overlap and improve 
+  # tracking in crowded situations.
+  # Defualt: 0.5
+  NMS_MAX_OVERLAP: 0.9
+  # MAX_IOU_DISTANCE: The maximum IOU (Intersection Over Union) distance for associating detections with tracks. Lowering this value 
+  # can help better manage overlaps, making the tracking more restrictive in terms of spatial overlap.
+  # Defualt: 0.7
+  MAX_IOU_DISTANCE: 0.7
+  # MAX_AGE: The maximum number of frames for which a track can be maintained without associated detections. Increasing this value 
+  # allows tracks to "survive" longer during occlusions.
+  # Defualt: 70
+  MAX_AGE: 100
+  # N_INIT: The number of consecutive frames required to confirm a track. Increasing this value can avoid creating new IDs for 
+  # detections that briefly appear and then disappear.
+  # Default: 3
+  N_INIT: 5
+  # NN_BUDGET: The maximum size of the sample pool for tracking features. This can be adjusted for performance optimization but 
+  # doesn't directly impact overlap handling.
+  # Default: 100
+  NN_BUDGET: 200
